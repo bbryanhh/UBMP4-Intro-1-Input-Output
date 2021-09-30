@@ -70,6 +70,8 @@ int main(void)
  * 
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
  * 
+ * LED3 = 0 changes state to OFF and LED3 = 1 changes state to ON
+ * 
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
