@@ -31,27 +31,23 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
 	{
-        // If SW2 is pressed, make a flashy light pattern
-        if(SW2 == 0)
+         // Nested if 'AND' code
+        if(SW3 == 0)
         {
-            LED3 = 1;
-            __delay_ms(100);
-            LED4 = 1;
-            __delay_ms(100);
-            LED5 = 1;
-            __delay_ms(100);
-            LED6 = 1;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
-            LED4 = 0;
-            __delay_ms(100);
-            LED5 = 0;
-            __delay_ms(100);
-            LED6 = 0;
-            __delay_ms(100);
+            if(SW4 == 0)
+            {
+                LED4 = 1;
+            }
+            else
+            {
+                LED4 = 0;
+            }
         }
-        
+        else
+        {
+            LED4 = 0;
+        }
+
         // Add code for your Program Analysis and Programming Activities here:
 
         // Activate bootloader if SW1 is pressed.
@@ -68,6 +64,9 @@ int main(void)
  *    Do the LEDs keep flashing when SW2 is held? Look at the program and
  *    explain why this happens when SW2 is held.
  * 
+ * It will flash around once if pressed and released quickly.The LEDs keep 
+ * flashing when SW2 is held because the if statement keeps it going if SW2 is 0.
+ * 
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
  * 
  * LED3 = 0 changes state to OFF and LED3 = 1 changes state to ON
@@ -76,12 +75,18 @@ int main(void)
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
  * 
+ * The voltage would be 0 if LED3 = 0. I would expect the voltage to be 1.8 
+ * if LED3 = 1.
+ * 
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
  * 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
+ * 
+ *  One single equal sign is assigning a value to something. Two equal signs 
+ * performs what it's equal to. 
  * 
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
@@ -98,6 +103,12 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
+ * 
+ * When SW3 is pressed, the 4 LEDs light up at the same time for 1 second. One 
+ * disadvantage is that the amount of time it blinks is different each time 
+ * SW3 is held down.
+ * 
+ * 
  * 
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
@@ -124,9 +135,14 @@ int main(void)
  *    Next, press and hold SW3 while pressing and releasing SW4. Does it work
  *    as expected?
  * 
+ * Yes
+ * 
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
+ * 
+ * No. The difference in the operation is that if SW3 is press first you can 
+ * use SW4 but can't do the opposite.
  * 
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
