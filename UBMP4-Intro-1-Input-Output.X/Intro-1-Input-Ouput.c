@@ -30,28 +30,90 @@ int main(void)
 	
     // Code in this while loop runs repeatedly.
     while(1)
-	{
-         // Nested if 'AND' code
+        {
+        // If SW2 is pressed, make a flashy light pattern
         if(SW3 == 0)
         {
-            if(SW4 == 0)
-            {
-                LED4 = 1;
-            }
-            else
-            {
-                LED4 = 0;
-            }
-        }
-        else
-        {
+            LED4 = 1;
+            __delay_ms(250);
+            LED5 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED6 = 1;
+            __delay_ms(1750);
             LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        }
+         if(SW3 == 0)
+        {
+            LED6 = 1;
+            __delay_ms(250);
+            LED5 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        } if(SW4 == 0)
+        {
+            LED5 = 1;
+            __delay_ms(250);
+            LED6 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        } if(SW5 == 0)
+        {
+            LED5 = 1;
+            __delay_ms(250);
+            LED4 = 1;
+            __delay_ms(1000);
+            LED6 = 1;
+            __delay_ms(1500);
+            LED3 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
         }
 
         // Add code for your Program Analysis and Programming Activities here:
-
-        // Activate bootloader if SW1 is pressed.
-        if(SW1 == 0)
+        // Make a tone while SW5 is held
+        if(SW2 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(2500);
+        }
         {
             RESET();
         }
@@ -168,6 +230,8 @@ int main(void)
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
  * 
+ * The conditions don't matter as long as you press both buttons
+ * 
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
  
@@ -185,6 +249,8 @@ int main(void)
  *    at least one advantage of using a logical conditional operator instead of
  *    nested if structures?
  * 
+ * It is more neat and easier to read
+ * 
  * 9. Replace the double ampersand '&&' with double vertical bars '||)' to make
  *    a logical OR conditional operator. Your code should look like this:
   
@@ -200,6 +266,9 @@ int main(void)
 
  *    Describe the conditions under which LED4 turns on.
  * 
+ * If either SW3 or SW4 is pressed LED4 turns on.
+ * 
+ * 
  * 
  * Programming Activities
  * 
@@ -210,7 +279,10 @@ int main(void)
  *    before MPLAB-X produces an error message? (Hint: can you think of a fast
  *    and efficient way of guessing an unknown number?)
  * 
- * 2. The '__delay_ms();' function only accepts integers as delay values. To
+ * 4205 ms
+ * 
+ * 
+ *  2. The '__delay_ms();' function only accepts integers as delay values. To
  *    make delays shorter than 1ms, specify a delay in microseconds using the
  *    '__delay_us();' function. You won't be able to see such short LED flashes
  *    with your eyes, but you could measure them using an oscilloscope, or hear
@@ -229,6 +301,11 @@ int main(void)
  *    Does the pitch of the tone increase or decrease if the delay value is
  *    made smaller?
  * 
+ * Increases the delay value makes to tone lower and decreasing the value makes
+ * the tone higher.
+ * 
+ * 
+ * 
  * 3. This code demonstrates a more compact way of toggling the beeper output
  *    using a logical NOT operator '!'. Replace the code above, with this code:
  
@@ -244,6 +321,8 @@ int main(void)
  *    be in after this code runs? While one advantage of this method is smaller
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
+ * 
+ * A disadvantage is that there's only 1 variable 
  * 
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
