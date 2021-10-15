@@ -31,88 +31,14 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
         {
-        // If SW2 is pressed, make a flashy light pattern
-        if(SW3 == 0)
-        {
-            LED4 = 1;
-            __delay_ms(250);
-            LED5 = 1;
-            __delay_ms(1000);
-            LED3 = 1;
-            __delay_ms(1500);
-            LED6 = 1;
-            __delay_ms(1750);
-            LED4 = 0;
-            __delay_ms(250);
-            LED5 = 0;
-            __delay_ms(1000);
-            LED3 = 0;
-            __delay_ms(1500);
-            LED6 = 0;
-            __delay_ms(1750);
-        }
-         if(SW3 == 0)
-        {
-            LED6 = 1;
-            __delay_ms(250);
-            LED5 = 1;
-            __delay_ms(1000);
-            LED3 = 1;
-            __delay_ms(1500);
-            LED4 = 1;
-            __delay_ms(1750);
-            LED4 = 0;
-            __delay_ms(250);
-            LED5 = 0;
-            __delay_ms(1000);
-            LED3 = 0;
-            __delay_ms(1500);
-            LED6 = 0;
-            __delay_ms(1750);
-        } if(SW4 == 0)
-        {
-            LED5 = 1;
-            __delay_ms(250);
-            LED6 = 1;
-            __delay_ms(1000);
-            LED3 = 1;
-            __delay_ms(1500);
-            LED4 = 1;
-            __delay_ms(1750);
-            LED4 = 0;
-            __delay_ms(250);
-            LED5 = 0;
-            __delay_ms(1000);
-            LED3 = 0;
-            __delay_ms(1500);
-            LED6 = 0;
-            __delay_ms(1750);
-        } if(SW5 == 0)
-        {
-            LED5 = 1;
-            __delay_ms(250);
-            LED4 = 1;
-            __delay_ms(1000);
-            LED6 = 1;
-            __delay_ms(1500);
-            LED3 = 1;
-            __delay_ms(1750);
-            LED4 = 0;
-            __delay_ms(250);
-            LED5 = 0;
-            __delay_ms(1000);
-            LED3 = 0;
-            __delay_ms(1500);
-            LED6 = 0;
-            __delay_ms(1750);
-        }
+    
 
         // Add code for your Program Analysis and Programming Activities here:
-        // Make a tone while SW5 is held
+        // Make a tone while SW2 is held
         if(SW2 == 0)
         {
             BEEPER = !BEEPER;
-            __delay_us(2500);
+            __delay_us(1000);
         }
         {
             RESET();
@@ -331,11 +257,78 @@ int main(void)
  *    one button is held. Do all of the patterns try to flash the LEDs at the
  *    same time, or sequentially? Explain why this is.
  * 
+ *  while(1)
+        {
+        // If SW2 is pressed, make a flashy light pattern
+        if(SW3 == 0)
+        {
+            LED4 = 1;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(250);
+            LED6 = 1;
+            __delay_ms(400);
+            LED3 = 1;
+            __delay_ms(550);
+            LED4 = 0;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(250);
+            LED3 = 0;
+            __delay_ms(400);
+            LED6 = 0;
+            __delay_ms(550);
+        }
+         if(SW4 == 0)
+        {
+            LED6 = 1;
+            __delay_ms(250);
+            LED5 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        } if(SW5 == 0)
+        {
+            LED5 = 1;
+            __delay_ms(250);
+            LED6 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+  
+        }
+ * 
+ * When more than one button is held, it runs whatever the buttons you 
+ * programmed it to do in till you release it. THe patterns flash the LEDS 
+ * sequentially because it runs whatever comes first.
+ * 
  * 5. Create a program that makes a different tone for each pushbutton.
  * 
  *    Test each tone by pressing each button individually. Next, press two or
  *    more buttons at the same time. Describe what the tone waveform would look
  *    like when more than one button is held.
+ * 
+ * 
  * 
  * 6. Use individual 'if' structures to simulate 'Start' and 'Stop' buttons for
  *    an industrial machine. LED D4 should turn on when SW3 is pressed, stay on
